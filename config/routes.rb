@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "Homes#top"
+  root "homes#top"
   resources :users
   resources :diaries
 end
