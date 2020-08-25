@@ -15,3 +15,13 @@ require("bootstrap/dist/js/bootstrap");
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+document.addEventListener("turbolinks:load", () => {
+  flatpickr("#calendar", {
+    defaultDate: "today",
+    maxDate: "today",
+    onChange: () => {
+      alert("test");
+    },
+  });
+});
