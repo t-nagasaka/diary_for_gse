@@ -1,3 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Sacramento");
+@import url("https://fonts.googleapis.com/css?family=Sawarabi+Mincho");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap");
+
 body {
-  padding-top: 60px;
+  /* font-family: "Sawarabi Mincho", sans-serif !important; */
+  padding-top: 55px;
+}
+
+.flatpickr-calendar {
+  font-family: initial !important;
+}
+
+.flatpickr-monthDropdown-months {
+  /* font-family: initial !important; */
+}
+
+.title {
+  color: #007bff;
+  text-align: center;
+  /* padding: 10px auto; */
+  margin-bottom: 20px;
+}
+
+.title strong {
+  border-bottom: solid 2px;
+}
+
+.navbar-toggler {
+  border-color: #007bff !important;
 }

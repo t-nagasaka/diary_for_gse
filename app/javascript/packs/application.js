@@ -24,4 +24,9 @@ document.addEventListener("turbolinks:load", () => {
       alert("test");
     },
   });
+  $(document).click(function (event) {
+    if (!$(event.target).closest(".navbar").length) {
+      $(".navbar-collapse").collapse("hide");
+    }
+  });
 });
