@@ -1,4 +1,4 @@
-require_relative 'boot'
+require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
@@ -31,5 +31,9 @@ module DiaryForGse
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # 日本語化
+    config.i18n.default_locale = :ja
+    # タイムゾーン変更
+    config.time_zone = "Asia/Tokyo"
   end
 end
