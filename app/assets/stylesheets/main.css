@@ -4,12 +4,16 @@
 
 body {
   /* font-family: "Sawarabi Mincho", sans-serif !important; */
-  padding-top: 55px;
+  padding: 50px 0px;
 }
 
-.flatpickr-calendar {
-  font-family: initial !important;
+body > :not(.flatpickr-calendar):not(.flatpickr-monthDropdown-months) {
+  font-family: "Sawarabi Mincho", sans-serif !important;
 }
+
+/* .flatpickr-calendar {
+  font-family: initial !important;
+} */
 
 .flatpickr-monthDropdown-months {
   /* font-family: initial !important; */
@@ -27,5 +31,36 @@ body {
 }
 
 .navbar-toggler {
-  border-color: #007bff !important;
+  /* border-color: #007bff !important; */
+  border: solid 0px !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
+/* ----------------------------- */
+footer {
+  margin-top: auto;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+nav {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

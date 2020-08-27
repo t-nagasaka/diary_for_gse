@@ -32,7 +32,7 @@ module DiaryForGse
     # Don't generate system test files.
     config.generators.system_tests = nil
     # 日本語化
-    config.i18n.default_locale = :ja
+    config.i18n.default_locale = :en
     # タイムゾーン変更
     config.time_zone = "Asia/Tokyo"
   end
