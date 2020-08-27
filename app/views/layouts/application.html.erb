@@ -10,8 +10,13 @@
   </head>
   <body>
     <%= render "layouts/navbar" %>
-    <div class="main-container" >
+    <div class="main-container">
       <%= yield %>
+      <div class="btn-group mt-2 mb-4" role="group" aria-label="actionButtons">
+      </div>
+      <footer class="bg-primary text-white text-center p-3 fixed-bottom">
+        copyright - taichi nagasaka, 2020 All Rights Reserved.
+      </footer>
     </div>
   </body>
 </html>

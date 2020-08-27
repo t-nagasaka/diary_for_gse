@@ -1,26 +1,26 @@
 <div class="container-login">
   <div class="title">
-    <h3><strong>お問合せフォーム</strong></h3>
+    <h3><strong>Contact us</strong></h3>
   </div>
   <%= form_with url: contact_path do |f| %>
     <div class="form-group" >
-      <%= f.label :"名前( 氏 )" %>
-      <%= f.text_field :name, class: 'form-control mb-3', placeholder: "氏", required: true %>
+      <%= f.label :"Last name" %>
+      <%= f.text_field :name, class: 'form-control mb-3', placeholder: "Last name", required: true %>
     </div>
     <div class="form-group" >
-      <%= f.label :"名前( 名 )" %>
-      <%= f.text_field :name, class: 'form-control mb-3', placeholder: "名", required: true %>
+      <%= f.label :"First name" %>
+      <%= f.text_field :name, class: 'form-control mb-3', placeholder: "First name", required: true %>
     </div>
     <div class="form-group">
-      <%= f.label :"Eメール" %>
+      <%= f.label :"Email" %>
       <%= f.email_field :email, autocomplete: 'email', class: 'form-control', placeholder: "example@example.com", required: true %>
     </div>
     <div class="form-group">
-      <%= f.label :"お問い合わせ内容" %>
+      <%= f.label :"Inquiry" %>
       <%= f.text_area :text, class: 'form-control', rows:15, required: true %>
     </div>
     <div class="form-group">
-      <%= f.submit "送信", class: 'btn btn-primary btn-block' %>
+      <%= f.submit "Send", class: 'btn btn-primary' %>
     </div>
   <% end %>
 </div>
