@@ -4,7 +4,8 @@
 
 body {
   /* font-family: "Sawarabi Mincho", sans-serif !important; */
-  padding: 50px 0px;
+  padding: 56px 0px;
+  border: #007bff !important;
 }
 
 body > :not(.flatpickr-calendar):not(.flatpickr-monthDropdown-months) {
@@ -63,4 +64,24 @@ nav {
   100% {
     background-position: 0% 50%;
   }
+}
+
+.form-control {
+  border: 1px solid #007bff !important;
+}
+
+.flatpickr-input {
+  border-color: 1px solid #007bff !important;
+}
+/* .border {
+  border: 1px solid #007bff !important;
+} */
+
+.other-confirm {
+  border: 1px solid #747373;
+}
+.current {
+  border: 1px solid #007bff;
+  background: #007bff;
+  color: white;
 }
