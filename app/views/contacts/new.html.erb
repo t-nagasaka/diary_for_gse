@@ -1,0 +1,37 @@
+<div class="container-login">
+  <div class="title">
+    <h3><strong>Contact us</strong></h3>
+  </div>
+  <div class="row mt-4 text-center">
+    <div class="confirm col-md-4 col-12 p-1">
+      <p class="current">1.Input</p>
+    </div>
+    <div class="confirm col-md-4 col-12 p-1">
+      <p class="other-confirm">2.Confirm</p>
+    </div>
+    <div class="confirm col-md-4 col-12 p-1">
+      <p class="other-confirm">3.Complete</p>
+    </div>
+  </div>
+  <%= form_with model: @contact, url: contact_confirm_path, local: true do |f| %>
+    <div class="form-group" >
+      <%= f.label :"Last name" %>
+      <%= f.text_field :last_name, class: 'form-control mb-3', placeholder: "Last name", required: true %>
+    </div>
+    <div class="form-group" >
+      <%= f.label :"First name" %>
+      <%= f.text_field :first_name, class: 'form-control mb-3', placeholder: "First name", required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"Email" %>
+      <%= f.email_field :email, autocomplete: 'email', class: 'form-control', placeholder: "example@example.com", required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.label :"Inquiry" %>
+      <%= f.text_area :inquiry, class: 'form-control', rows:9, required: true %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Send", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
