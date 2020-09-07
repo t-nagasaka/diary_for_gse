@@ -10,8 +10,14 @@ class DiariesController < ApplicationController
   end
 
   def create
-    diary = Diary.create!(diary_params)
-    redirect_to index
+    # @diary = Diary.new(diary_params)
+    # @diary.user_id = current_user.id
+    # @diary.save
+    current_user.diaries.create!(diary_params)
+    redirect_to new_diary_path
+  end
+
+  def search
   end
 
   def edit
@@ -26,6 +32,6 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:title, :comment)
+    params.require(:diary).permit(:title, :comment, :date, user_id: current_user.id)
   end
 end

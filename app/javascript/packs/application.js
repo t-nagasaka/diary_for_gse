@@ -21,7 +21,7 @@ document.addEventListener("turbolinks:load", () => {
     defaultDate: "today",
     maxDate: "today",
     onChange: () => {
-      alert("test");
+      location.href = "./";
     },
   });
   $(document).click(function (event) {

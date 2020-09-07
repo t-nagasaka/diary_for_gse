@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post "contact/back", to: "contacts#back"
   post "/contact", to: "contacts#create"
   get "/question", to: "homes#question"
+  get "/diaries/search", to: "diaries#search"
   resources :contacts, only: [:new, :create]
   resources :users
   resources :diaries
