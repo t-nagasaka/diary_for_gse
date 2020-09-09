@@ -20,10 +20,27 @@ document.addEventListener("turbolinks:load", () => {
   flatpickr("#calendar", {
     defaultDate: "today",
     maxDate: "today",
-    onChange: () => {
-      location.href = "./";
+    onChange: (e) => {
+      chooseDate = document.getElementById("calendar").value;
+      $.ajax({
+        url: "/diaries/search", // リクエストを送信するURLを指定
+        type: "GET", // HTTPメソッドを指定（デフォルトはGET）
+        data: {
+          // 送信するデータをハッシュ形式で指定
+          data: { date: chooseDate },
+        },
+        dataType: "json", // レスポンスデータをjson形式と指定する
+      })
+        .done(function (result) {
+          $("#diary-title").val(result.title);
+          $("#diary-comment").val(result.comment);
+        })
+        .fail(function () {
+          alert("error!"); // 通信に失敗した場合はアラートを表示
+        });
     },
   });
+  //
   $(document).click(function (event) {
     if (!$(event.target).closest(".navbar").length) {
       $(".navbar-collapse").collapse("hide");

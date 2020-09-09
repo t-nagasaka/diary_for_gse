@@ -10,14 +10,14 @@ class DiariesController < ApplicationController
   end
 
   def create
-    # @diary = Diary.new(diary_params)
-    # @diary.user_id = current_user.id
-    # @diary.save
     current_user.diaries.create!(diary_params)
     redirect_to new_diary_path
   end
 
   def search
+    @choose_date = params[:data][:date]
+    @choose_diary = current_user.diaries.find_or_initialize_by(date: @choose_date)
+    render json: @choose_diary
   end
 
   def edit
