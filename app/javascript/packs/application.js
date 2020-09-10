@@ -24,7 +24,7 @@ document.addEventListener("turbolinks:load", () => {
       chooseDate = document.getElementById("calendar").value;
       $.ajax({
         url: "/diaries/search", // リクエストを送信するURLを指定
-        type: "GET", // HTTPメソッドを指定（デフォルトはGET）
+        type: "POST", // HTTPメソッドを指定（デフォルトはGET）
         data: {
           // 送信するデータをハッシュ形式で指定
           data: { date: chooseDate },
@@ -45,5 +45,35 @@ document.addEventListener("turbolinks:load", () => {
     if (!$(event.target).closest(".navbar").length) {
       $(".navbar-collapse").collapse("hide");
     }
+  });
+  //
+  var $formerDay;
+
+  $(function () {
+    $(".dropdown-menu .dropdown-item").click(function () {
+      var visibleItem = $(".dropdown-toggle", $(this).closest(".dropdown"));
+      visibleItem.text($(this).attr("value"));
+      formerDay = $(this).parents(".former-day")[0];
+      $.ajax({
+        url: "/diaries/former_comment", // リクエストを送信するURLを指定
+        type: "GET", // HTTPメソッドを指定（デフォルトはGET）
+        data: {
+          // 送信するデータをハッシュ形式で指定
+          data: { date: this.dataset.former }, //id=dateとしてviewに記載
+        },
+        dataType: "json", // レスポンスデータをjson形式と指定する
+      })
+        .done(function (result) {
+          // debugger;
+          formerDay.querySelector("p.prev-text").innerText = result.comment;
+          formerDay.querySelector("h5.modal-title").innerText = result.title;
+          formerDay.querySelector("div.modal-body").innerText = result.comment;
+          // $("#former-day-title-lhob").html(result.title);
+          // $("#former-day-comment-lhob").html(result.comment);
+        })
+        .fail(function () {
+          alert("error!"); // 通信に失敗した場合はアラートを表示
+        });
+    });
   });
 });

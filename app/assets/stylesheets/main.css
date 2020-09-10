@@ -85,3 +85,23 @@ nav {
   background: #007bff;
   color: white;
 }
+
+.dropdown {
+  height: 35px;
+}
+
+.dropdown-toggle {
+  height: 35px;
+}
+
+.prev-text {
+  font-size: 15px !important;
+  /* overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  height: 65px;
+}
