@@ -6,7 +6,7 @@ class DiariesController < ApplicationController
   end
 
   def new
-    @diary = Diary.new
+    @diary = current_user.diaries.find_or_initialize_by(date: Date.today)
   end
 
   def create
@@ -21,7 +21,10 @@ class DiariesController < ApplicationController
   end
 
   def former_comment
+    @prev_position = params[:data][:position]
     @prev_date = params[:data][:date]
+    current_user.send("past_#{@prev_position}=", @prev_date)
+    current_user.save
     now = Date.today
     ago = now.ago(@prev_date.to_i.days)
     former_date = "#{ago.year}-#{ago.month}-#{ago.day}"
