@@ -149,14 +149,23 @@
   </div>
   <div class="row mt-4">
     <div class="col-md-3 col-12">
-      <%= form_with model: @Twitter, local: true do |form| %>
-        <div class="form-group" >
-          <%= form.label :title, "Twitter id" %>
-          <%= form.text_field :title, required: true, class: "form-control" %>
+      <%= form_with model: @twitter, url: twitter_id_path, local: true do |form| %>
+        <%= form.label :twitter_id, "Twitter id" %>
+        <div class="form-row">
+          <div class="col-8">
+            <%= form.text_field :twitter_id, required: true, class: "form-control" %>
+          </div>
+          <div class="col-4">
+            <%= form.submit "Save", class: 'btn btn-primary' %>
+          </div>
         </div>
       <% end %>
-      <a class="twitter-timeline" data-lang="ja" data-height="700" href="https://twitter.com/take18k_tech?ref_src=twsrc%5Etfw">Tweets by take18k_tech</a>
-      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <div class="twitter_height">
+        <a class="twitter-timeline" href=<%= @twitter_url %>>Tweets by<%= @twitter_id %></a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      <%# <a class="twitter-timeline" data-lang="ja" data-height="700" href="https://twitter.com/take18k_tech?ref_src=twsrc%5Etfw">Tweets by take18k_tech</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> %>
     </div>
     <div class="col-md-9 col-12">
       <%= form_with model: @diary, local: true, id: "diary-form" do |form| %>

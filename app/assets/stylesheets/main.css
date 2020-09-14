@@ -101,3 +101,9 @@ nav {
   overflow: hidden;
   height: 65px;
 }
+
+.twitter_height {
+  overflow-y: scroll !important;
+  height: 700px !important;
+  margin-top: 20px !important;
+}
