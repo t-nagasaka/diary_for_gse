@@ -23,7 +23,6 @@ body > :not(.flatpickr-calendar):not(.flatpickr-monthDropdown-months) {
 .title {
   color: #007bff;
   text-align: center;
-  /* padding: 10px auto; */
   margin-bottom: 20px;
 }
 
@@ -32,7 +31,6 @@ body > :not(.flatpickr-calendar):not(.flatpickr-monthDropdown-months) {
 }
 
 .navbar-toggler {
-  /* border-color: #007bff !important; */
   border: solid 0px !important;
 }
 
@@ -73,13 +71,11 @@ nav {
 .flatpickr-input {
   border-color: 1px solid #007bff !important;
 }
-/* .border {
-  border: 1px solid #007bff !important;
-} */
 
 .other-confirm {
   border: 1px solid #747373;
 }
+
 .current {
   border: 1px solid #007bff;
   background: #007bff;
@@ -104,4 +100,10 @@ nav {
   -webkit-line-clamp: 3;
   overflow: hidden;
   height: 65px;
+}
+
+.twitter_height {
+  overflow-y: scroll !important;
+  height: 700px !important;
+  margin-top: 20px !important;
 }

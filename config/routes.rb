@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "/question", to: "homes#question"
   post "/diaries/search", to: "diaries#search"
   get "/diaries/former_comment", to: "diaries#former_comment"
+  post "/twitter_id", to: "diaries#twitter_id"
   resources :contacts, only: [:new, :create]
   resources :users
   resources :diaries

@@ -59,12 +59,11 @@ document.addEventListener("turbolinks:load", () => {
         type: "GET", // HTTPメソッドを指定（デフォルトはGET）
         data: {
           // 送信するデータをハッシュ形式で指定
-          data: { date: this.dataset.former }, //id=dateとしてviewに記載
+          data: { date: this.dataset.former, position: this.dataset.position }, //id=dateとしてviewに記載
         },
         dataType: "json", // レスポンスデータをjson形式と指定する
       })
         .done(function (result) {
-          // debugger;
           formerDay.querySelector("p.prev-text").innerText = result.comment;
           formerDay.querySelector("h5.modal-title").innerText = result.title;
           formerDay.querySelector("div.modal-body").innerText = result.comment;
