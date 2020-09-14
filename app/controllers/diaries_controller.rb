@@ -54,13 +54,30 @@ class DiariesController < ApplicationController
 
   def twitter_id
     twitter_data = params[:twitter_id].to_s
-    twitter_split = twitter_data.split("href=")
-    twitter_url = twitter_split[1].split(">Tweets by")
-    twitter_name = twitter_url[1].split("</a>")
-    twitter_url = twitter_url[0]
-    twitter_id = twitter_name[0]
-    current_user.update!(twitter_id: twitter_id, twitter_url: twitter_url)
-    redirect_to new_diary_path
+    options = Selenium::WebDriver::Chrome::Options.new
+    options.add_argument("--headless")
+    driver = Selenium::WebDriver.for :chrome, options: options
+    driver.navigate.to "https://publish.twitter.com/"
+    element1 = driver.find_element(:id, "configuration-query")
+    element1.send_keys params[:twitter_id].to_s
+    begin
+      element1.submit
+      sleep 2
+      element2 = driver.find_element(:class, "WidgetsSelector-item")
+      element2.click
+      sleep 2
+      element3 = driver.find_element(:class, "EmbedCode-container")
+      twitter_data = element3.text
+      twitter_split = twitter_data.split("href=")
+      twitter_url = twitter_split[1].split(">Tweets by")
+      twitter_name = twitter_url[1].split("</a>")
+      twitter_url = twitter_url[0]
+      twitter_id = twitter_name[0]
+      current_user.update!(twitter_id: twitter_id, twitter_url: twitter_url)
+      redirect_to new_diary_path
+    rescue
+      redirect_to new_diary_path, flash: { danger: "IDが有効ではなかったため、登録出来ませんでした。" }
+    end
   end
 
   def destroy
