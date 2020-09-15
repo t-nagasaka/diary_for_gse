@@ -47,8 +47,14 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: diary_for_gse_production
+#   username: diary_for_gse
+#   password: <%= ENV['DIARY_FOR_GSE_DATABASE_PASSWORD'] %>
 production:
   <<: *default
-  database: diary_for_gse_production
-  username: diary_for_gse
-  password: <%= ENV['DIARY_FOR_GSE_DATABASE_PASSWORD'] %>
+  database: <%= Rails.application.credentials.dig(:db, :database) %>
+  username: <%= Rails.application.credentials.dig(:db, :username) %>
+  password: <%= Rails.application.credentials.dig(:db, :password) %>
+  host: <%= Rails.application.credentials.dig(:db, :host) %>
