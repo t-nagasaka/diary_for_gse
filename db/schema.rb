@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_17_005127) do
+ActiveRecord::Schema.define(version: 2020_09_18_045046) do
 
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "last_name"
@@ -50,10 +50,10 @@ ActiveRecord::Schema.define(version: 2020_09_17_005127) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "past_lhob"
-    t.integer "past_lhib"
-    t.integer "past_rhib"
-    t.integer "past_rhob"
+    t.integer "past_lhob", default: 1
+    t.integer "past_lhib", default: 3
+    t.integer "past_rhib", default: 7
+    t.integer "past_rhob", default: 15
     t.string "twitter_id"
     t.integer "former_lhob"
     t.integer "former_lhib"
