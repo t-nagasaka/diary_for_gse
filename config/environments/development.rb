@@ -60,7 +60,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+  config.action_mailer.default_url_options = { host: "www.diary-gse.com" }
 
   # g_mail_sub01 = Rails.application.credentials.gmail_sub01[:mail]
   # g_password_sub01 = Rails.application.credentials.gmail_sub01[:password]
