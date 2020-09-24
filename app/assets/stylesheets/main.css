@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Sacramento");
 @import url("https://fonts.googleapis.com/css?family=Sawarabi+Mincho");
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Sawarabi+Gothic");
 
 body {
   /* font-family: "Sawarabi Mincho", sans-serif !important; */
@@ -9,7 +10,7 @@ body {
 }
 
 body > :not(.flatpickr-calendar):not(.flatpickr-monthDropdown-months) {
-  font-family: "Sawarabi Mincho", sans-serif !important;
+  font-family: "Sawaravi Gothic", sans-serif !important;
 }
 
 /* .flatpickr-calendar {

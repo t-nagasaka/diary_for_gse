@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_18_045046) do
+ActiveRecord::Schema.define(version: 2020_09_24_043843) do
 
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "last_name"
@@ -32,13 +32,6 @@ ActiveRecord::Schema.define(version: 2020_09_18_045046) do
     t.index ["user_id"], name: "index_diaries_on_user_id"
   end
 
-  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "title"
-    t.string "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.date "birthday"
@@ -55,10 +48,6 @@ ActiveRecord::Schema.define(version: 2020_09_18_045046) do
     t.integer "past_rhib", default: 7
     t.integer "past_rhob", default: 15
     t.string "twitter_id"
-    t.integer "former_lhob"
-    t.integer "former_lhib"
-    t.integer "former_rhib"
-    t.integer "former_rhob"
     t.string "twitter_url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
