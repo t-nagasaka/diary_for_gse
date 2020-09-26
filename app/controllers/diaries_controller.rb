@@ -1,9 +1,4 @@
 class DiariesController < ApplicationController
-  def index
-  end
-
-  def show
-  end
 
   def new
     @diary = current_user.diaries.find_or_initialize_by(date: Date.today)
@@ -44,9 +39,6 @@ class DiariesController < ApplicationController
     render json: @choose_comment
   end
 
-  def edit
-  end
-
   def update
     current_user.diaries.update!(diary_params)
     redirect_to new_diary_path
@@ -77,9 +69,6 @@ class DiariesController < ApplicationController
     rescue
       redirect_to new_diary_path, flash: { danger: "IDが有効ではなかったため、登録出来ませんでした。" }
     end
-  end
-
-  def destroy
   end
 
   private
