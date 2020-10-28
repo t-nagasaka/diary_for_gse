@@ -1,5 +1,4 @@
 class DiariesController < ApplicationController
-
   def new
     @diary = current_user.diaries.find_or_initialize_by(date: Date.today)
     @lhob_num = current_user.past_lhob
@@ -40,7 +39,7 @@ class DiariesController < ApplicationController
   end
 
   def update
-    current_user.diaries.update!(diary_params)
+    current_user.diaries.update(diary_params)
     redirect_to new_diary_path
   end
 
